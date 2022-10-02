@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381425592326",
+    "project_id": "utpapp-c5853",
+    "storage_bucket": "utpapp-c5853.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381425592326:android:6343976c3b7f30ddccfb87",
+        "android_client_info": {
+          "package_name": "com.example.utpapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381425592326-5tnr97siltks5o2r1akpkkv8lvljjmvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1klpYmF9ABQ0XKfqCrQwZ5RmrtSQdKhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381425592326-5tnr97siltks5o2r1akpkkv8lvljjmvg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
