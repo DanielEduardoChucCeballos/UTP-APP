@@ -5,7 +5,7 @@ import 'package:utpapp/auth/registerPage.dart';
 import 'package:sign_button/sign_button.dart';
 import 'package:utpapp/controllers/authenticator.dart';
 import 'package:utpapp/screens/aboutus.dart';
-import 'package:utpapp/screens/homePage.dart';
+import 'package:utpapp/screens/home/HomeScreen.dart';
 import '../controllers/biometric_helper.dart';
 import '../screens/teacherPage.dart';
 import '../screens/whatsapp_api.dart';
@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomePage()),
+                                                    HomeScreen()),
                                           );
                                         },
                                         child: const Text('Iniciar Sesión'),
@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      const AboutUsPage()),
+                                                       HomeScreen()),
                                             );
                                           },
                                         ),
@@ -232,7 +232,7 @@ class _LoginPageState extends State<LoginPage> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          const AboutUsPage()),
+                                                          HomeScreen()),
                                                 );
                                               },
                                             ),
