@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:utpapp/auth/loginPage.dart';
 import 'package:utpapp/screens/MainScreen.dart';
 import 'package:utpapp/screens/aboutus.dart';
+import 'package:utpapp/screens/button_nav_bar.dart';
 import 'package:utpapp/screens/cameraPage.dart';
 import 'package:utpapp/screens/home/HomeScreen.dart';
 import 'package:utpapp/screens/homePage.dart';
@@ -56,7 +57,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 press: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => ButtonNavBar()),
                   )
                 },
               ),

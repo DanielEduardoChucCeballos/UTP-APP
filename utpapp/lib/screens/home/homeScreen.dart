@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:utpapp/constants.dart';
+import 'package:utpapp/screens/button_nav_bar.dart';
 import 'package:utpapp/screens/home/banner.dart';
-import 'package:utpapp/screens/home/bottom_navigation_bar.dart';
 import 'package:utpapp/screens/home/datosEstadisticos.dart';
 
 import 'package:utpapp/screens/home/search_field.dart';
@@ -9,7 +9,6 @@ import 'package:utpapp/size_confige.dart';
 import '../../drawer.dart';
 import 'appbar.dart';
 import 'cards.dart';
-import 'categories_list.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,21 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigation(
-        selectedIndex: _selectedIndex,
-        onItemPressed: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        centerIcon: Icons.place,
-        itemIcons: [
-          Icons.home,
-          Icons.notifications,
-          Icons.message,
-          Icons.account_box,
-        ],
       ),
     );
   }

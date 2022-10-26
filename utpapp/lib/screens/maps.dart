@@ -23,6 +23,7 @@ class _ConocenosState extends State<Maps> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('gooogle'),

@@ -55,6 +55,9 @@ dependencies:
   flutter_native_splash: ^2.2.12
   splash_view: ^2.0.1
   flip_card: ^0.6.0
+  curved_navigation_bar: ^1.0.3
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

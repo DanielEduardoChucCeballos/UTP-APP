@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../drawer.dart';
+import '../size_confige.dart';
 import 'aboutus.dart';
+import 'home/appbar.dart';
 import 'llamadas_api.dart';
 
 class TeachersPage extends StatefulWidget {
@@ -19,75 +22,67 @@ class _TeachersPageState extends State<TeachersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Maestros UTP"),
-      ),
+      drawer: MenuDrawer(),
       body: ListView(
         children: [
+          SizedBox(height: getRelativeHeight(0.025)),
+          UTPAppBar(
+            key: null,
+          ),
           //:::: DISIGN :::://
           Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Card(
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(60.0),
-                topRight: Radius.circular(60.0),
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-              )),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     children: [
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const CircleAvatar(
-                        backgroundImage: AssetImage(
-                          'assets/images/logo.png',
-                        ),
-                        radius: 60.0,
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Nombre:",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              backgroundImage: AssetImage(
+                                'assets/images/user.png',
+                              ),
+                              radius: 40.0,
+                            ),
                           ),
-                          Text("Nombre completo del Maestro"),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          Text(
-                            "Correo:",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text("Correo completo del Maestro"),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          Text(
-                            "Num Tel.:",
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text("Número completo del Maestro")
+                          Column(
+                            children: [
+                              Text(
+                                "Nombre:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Nombre completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Correo:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Correo completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Num Tel.:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Número completo del Maestro")
+                            ],
+                          )
                         ],
-                      ),
-                      const SizedBox(
-                        height: 10.0,
                       ),
                       Row(
                         children: [
@@ -96,8 +91,349 @@ class _TeachersPageState extends State<TeachersPage> {
                               icon: const Icon(Icons.whatsapp),
                               label: const Text("WhatsApp")),
                           TextButton.icon(
-                              onPressed: ()async {
-                                FlutterPhoneDirectCaller.callNumber("9992721211");
+                              onPressed: () async {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "9992721211");
+                              },
+                              icon: const Icon(Icons.call),
+                              label: const Text("LLamada")),
+                          TextButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AboutUsPage()),
+                                );
+                              },
+                              icon: const Icon(Icons.email),
+                              label: const Text("Gmail")),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+            Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Card(
+              elevation: 10.0,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              backgroundImage: AssetImage(
+                                'assets/images/user.png',
+                              ),
+                              radius: 40.0,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Nombre:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Nombre completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Correo:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Correo completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Num Tel.:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Número completo del Maestro")
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          TextButton.icon(
+                              onPressed: _showWappMenu,
+                              icon: const Icon(Icons.whatsapp),
+                              label: const Text("WhatsApp")),
+                          TextButton.icon(
+                              onPressed: () async {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "9992721211");
+                              },
+                              icon: const Icon(Icons.call),
+                              label: const Text("LLamada")),
+                          TextButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AboutUsPage()),
+                                );
+                              },
+                              icon: const Icon(Icons.email),
+                              label: const Text("Gmail")),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+            Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Card(
+              elevation: 10.0,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              backgroundImage: AssetImage(
+                                'assets/images/user.png',
+                              ),
+                              radius: 40.0,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Nombre:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Nombre completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Correo:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Correo completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Num Tel.:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Número completo del Maestro")
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          TextButton.icon(
+                              onPressed: _showWappMenu,
+                              icon: const Icon(Icons.whatsapp),
+                              label: const Text("WhatsApp")),
+                          TextButton.icon(
+                              onPressed: () async {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "9992721211");
+                              },
+                              icon: const Icon(Icons.call),
+                              label: const Text("LLamada")),
+                          TextButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AboutUsPage()),
+                                );
+                              },
+                              icon: const Icon(Icons.email),
+                              label: const Text("Gmail")),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+            Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Card(
+              elevation: 10.0,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              backgroundImage: AssetImage(
+                                'assets/images/user.png',
+                              ),
+                              radius: 40.0,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Nombre:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Nombre completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Correo:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Correo completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Num Tel.:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Número completo del Maestro")
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          TextButton.icon(
+                              onPressed: _showWappMenu,
+                              icon: const Icon(Icons.whatsapp),
+                              label: const Text("WhatsApp")),
+                          TextButton.icon(
+                              onPressed: () async {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "9992721211");
+                              },
+                              icon: const Icon(Icons.call),
+                              label: const Text("LLamada")),
+                          TextButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AboutUsPage()),
+                                );
+                              },
+                              icon: const Icon(Icons.email),
+                              label: const Text("Gmail")),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+            Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Card(
+              elevation: 10.0,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              backgroundImage: AssetImage(
+                                'assets/images/user.png',
+                              ),
+                              radius: 40.0,
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "Nombre:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Nombre completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Correo:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Correo completo del Maestro"),
+                              SizedBox(
+                                height: 5.0,
+                              ),
+                              Text(
+                                "Num Tel.:",
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text("Número completo del Maestro")
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          TextButton.icon(
+                              onPressed: _showWappMenu,
+                              icon: const Icon(Icons.whatsapp),
+                              label: const Text("WhatsApp")),
+                          TextButton.icon(
+                              onPressed: () async {
+                                FlutterPhoneDirectCaller.callNumber(
+                                    "9992721211");
                               },
                               icon: const Icon(Icons.call),
                               label: const Text("LLamada")),
