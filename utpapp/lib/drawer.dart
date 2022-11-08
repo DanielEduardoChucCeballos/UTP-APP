@@ -6,9 +6,12 @@ import 'package:utpapp/screens/MainScreen.dart';
 import 'package:utpapp/screens/aboutus.dart';
 import 'package:utpapp/screens/button_nav_bar.dart';
 import 'package:utpapp/screens/cameraPage.dart';
+import 'package:utpapp/screens/conocenos/aboutUsIndex.dart';
+import 'package:utpapp/screens/conocenos/vidaUniversitaria.dart';
 import 'package:utpapp/screens/home/HomeScreen.dart';
 import 'package:utpapp/screens/homePage.dart';
 import 'package:utpapp/screens/maps.dart';
+import 'package:utpapp/screens/ofertaEducativa/ofertaEducativa.dart';
 import 'package:utpapp/screens/pdf.dart';
 import 'package:utpapp/screens/profileMenu.dart';
 import 'package:utpapp/screens/scanner.dart';
@@ -69,7 +72,35 @@ class _MenuDrawerState extends State<MenuDrawer> {
               ProfileMenu(
                 text: "Conócenos",
                 icon: "assets/icons/Call.svg",
-                press: () {},
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AboutUsIndex()),
+                  );
+                },
+              ),
+               ProfileMenu(
+                text: "VidaUniversitaria",
+                icon: "assets/icons/Call.svg",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VidaUniversitaria()),
+                  );
+                },
+              ),
+              ProfileMenu(
+                text: "Oferta Educativa",
+                icon: "assets/icons/Call.svg",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OfertaEducativa()),
+                  );
+                },
               ),
               ProfileMenu(
                 text: "Modelo educativo",

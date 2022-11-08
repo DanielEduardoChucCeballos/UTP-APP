@@ -116,8 +116,8 @@ class CardsEvents extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(
-                              'assets/images/capacitacion_2.png'),
+                          child:
+                              Image.asset('assets/images/capacitacion_2.png'),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -274,7 +274,7 @@ class CardsEvents extends StatelessWidget {
                   ),
                 ),
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FlipCard(
                   fill: Fill
@@ -285,8 +285,7 @@ class CardsEvents extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Image.asset(
-                              'assets/images/cuidado.png'),
+                          child: Image.asset('assets/images/cuidado.png'),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
