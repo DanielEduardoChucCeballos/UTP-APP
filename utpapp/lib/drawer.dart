@@ -15,6 +15,7 @@ import 'package:utpapp/screens/ofertaEducativa/ofertaEducativa.dart';
 import 'package:utpapp/screens/pdf.dart';
 import 'package:utpapp/screens/profileMenu.dart';
 import 'package:utpapp/screens/scanner.dart';
+import 'package:utpapp/screens/servicios/servicios.dart';
 import 'package:utpapp/screens/teacherPage.dart';
 
 class MenuDrawer extends StatefulWidget {
@@ -70,19 +71,28 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 press: () {},
               ),
               ProfileMenu(
-                text: "Conócenos",
-                icon: "assets/icons/Call.svg",
+                text: "Servicios",
+                icon: "assets/icons/Star Icon.svg",
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => AboutUsIndex()),
+                    MaterialPageRoute(builder: (context) => Servicios()),
                   );
                 },
               ),
-               ProfileMenu(
-                text: "VidaUniversitaria",
-                icon: "assets/icons/Call.svg",
+              ProfileMenu(
+                text: "Conócenos",
+                icon: "assets/icons/people-svgrepo-com.svg",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AboutUsIndex()),
+                  );
+                },
+              ),
+              ProfileMenu(
+                text: "Vida Universitaria",
+                icon: "assets/icons/student-svgrepo-com.svg",
                 press: () {
                   Navigator.push(
                     context,
@@ -93,12 +103,11 @@ class _MenuDrawerState extends State<MenuDrawer> {
               ),
               ProfileMenu(
                 text: "Oferta Educativa",
-                icon: "assets/icons/Call.svg",
+                icon: "assets/icons/student.svg",
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => OfertaEducativa()),
+                    MaterialPageRoute(builder: (context) => OfertaEducativa()),
                   );
                 },
               ),
@@ -128,14 +137,13 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   );
                 },
               ),
-               ProfileMenu(
+              ProfileMenu(
                 text: "APIS",
                 icon: "assets/icons/teacher-svgrepo-com.svg",
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>  HomePage()),
+                    MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
               ),

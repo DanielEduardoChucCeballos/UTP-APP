@@ -78,7 +78,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Carreras del Área Administración",
+                              "Área de Administración",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -122,7 +122,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.025),
                               ),
                             )
                           ],
@@ -159,7 +159,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Carreras del Área Gastronomía",
+                              "Área de Gastronomía",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -203,7 +203,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.025),
                               ),
                             )
                           ],
@@ -248,7 +248,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Carreras del Área Procesos Alimentarios",
+                              "Área de Procesos Alimentarios",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -292,7 +292,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.025),
                               ),
                             )
                           ],
@@ -329,7 +329,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Carreras del Área Tecnologías",
+                              "Área de Tecnologías",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -373,7 +373,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.025),
                               ),
                             )
                           ],
@@ -418,7 +418,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Carreras del Área Turismo",
+                              "Área de Turismo",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -462,7 +462,7 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.025),
                               ),
                             )
                           ],

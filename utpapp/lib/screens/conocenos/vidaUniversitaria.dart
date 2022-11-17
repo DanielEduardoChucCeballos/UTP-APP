@@ -82,7 +82,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -122,7 +122,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -163,7 +163,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -193,7 +193,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -242,7 +242,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -272,7 +272,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -313,7 +313,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -343,7 +343,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -392,7 +392,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -422,7 +422,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -463,7 +463,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -493,7 +493,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],
@@ -542,7 +542,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.020),
+                                fontSize: getRelativeWidth(0.026),
                               ),
                             ),
                           )
@@ -572,7 +572,7 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
-                                fontSize: getRelativeWidth(0.023),
+                                fontSize: getRelativeWidth(0.027),
                               ),
                             )
                           ],

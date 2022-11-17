@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utpapp/constants.dart';
 import 'package:utpapp/screens/button_nav_bar.dart';
 import 'package:utpapp/screens/home/banner.dart';
+import 'package:utpapp/screens/home/carrousel.dart';
 import 'package:utpapp/screens/home/datosEstadisticos.dart';
 
 import 'package:utpapp/screens/home/search_field.dart';
@@ -29,11 +30,13 @@ class _HomeScreenState extends State<HomeScreen> {
               UTPAppBar(
                 key: null,
               ),
+
               SizedBox(height: getRelativeHeight(0.015)),
               SearchField(),
+              CarrouselEvents(),
               SizedBox(height: getRelativeHeight(0.005)),
-              EventBanner(),
-              SizedBox(height: getRelativeHeight(0.025)),
+              // EventBanner(),
+              // SizedBox(height: getRelativeHeight(0.025)),
               CardsEvents(),
               SizedBox(height: getRelativeHeight(0.025)),
               DatosEstadisticos(),

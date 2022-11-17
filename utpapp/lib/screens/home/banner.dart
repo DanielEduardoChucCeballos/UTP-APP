@@ -25,7 +25,7 @@ class EventBanner extends StatelessWidget {
                   borderRadius: BorderRadius.circular(40),
                   boxShadow: [
                     BoxShadow(
-                      blurRadius: 40,
+                      blurRadius: 35,
                       offset: Offset(0, 15),
                       color: kPrimaryDarkColor,
                     )
@@ -60,7 +60,6 @@ class EventBanner extends StatelessWidget {
                                   fontSize: getRelativeWidth(0.045),
                                 ),
                               ),
-                           
                               Row(
                                 children: [
                                   Flexible(

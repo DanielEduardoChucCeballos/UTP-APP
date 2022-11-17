@@ -51,20 +51,20 @@ class _UTPAppBarState extends State<UTPAppBar> {
             ],
           ),
           Container(
-            height: getRelativeHeight(0.06),
+            height: getRelativeHeight(0.04),
             decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 3,
                     offset: Offset(0, 4),
-                    color: Colors.black54,
+                    color: Color.fromARGB(255, 226, 224, 224),
                   )
                 ],
-                color: Color(0xffA295FD),
+               
                 borderRadius: BorderRadius.circular(5)),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
-                child: Image.asset("assets/images/user.png")),
+                child: Image.asset("assets/images/arco.png",)),
           )
         ],
       ),

@@ -1,48 +1,64 @@
 import 'package:flutter/material.dart';
+
+import '../../drawer.dart';
+import '../../size_confige.dart';
+import '../home/appbar.dart';
 import 'package:flip_card/flip_card.dart';
 
-import '../../size_confige.dart';
-
-class CardsEvents extends StatelessWidget {
-  const CardsEvents({Key? key}) : super(key: key);
+class Servicios extends StatefulWidget {
+  const Servicios({super.key});
 
   @override
+  State<Servicios> createState() => _ServiciosState();
+}
+
+class _ServiciosState extends State<Servicios> {
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 20,),
-        Center(
-          child: Text(
-            'SERVICIOS EMPERSARIALES',
-            style: TextStyle(
-              color: Colors.blue,
-              background: Paint()..color = Color.fromARGB(255, 190, 225, 231),
-            ),
+    return Scaffold(
+      drawer: MenuDrawer(),
+      body: ListView(
+        children: [
+          SizedBox(height: getRelativeHeight(0.025)),
+          UTPAppBar(
+            key: null,
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Center(
-            child: RichText(
-              text: TextSpan(
-                style: TextStyle(color: Colors.black, fontSize: 36),
-                children: <TextSpan>[
-                  TextSpan(text: 'Conoce los '),
-                  TextSpan(
-                      text: 'Servicios Empersariales ',
-                      style: TextStyle(color: Colors.blue)),
-                  TextSpan(text: 'disponibles para el sector productivo.'),
-                  TextSpan(
-                      text:
-                          '\nLe invitamos a Vincularse con nosotros a través de un Convenio de Colaboración.',
-                      style: TextStyle(fontSize: 20)),
-                ],
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Text(
+              'SERVICIOS EMPERSARIALES',
+              style: TextStyle(
+                color: Colors.blue,
+                background: Paint()..color = Color.fromARGB(255, 190, 225, 231),
               ),
-              textScaleFactor: 0.5,
             ),
           ),
-        ),
-        Padding(
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: RichText(
+                text: TextSpan(
+                  style: TextStyle(color: Colors.black, fontSize: 36),
+                  children: <TextSpan>[
+                    TextSpan(text: 'Conoce los '),
+                    TextSpan(
+                        text: 'Servicios Empersariales ',
+                        style: TextStyle(color: Colors.blue)),
+                    TextSpan(text: 'disponibles para el sector productivo.'),
+
+                    TextSpan(
+                        text:
+                            '\nLe invitamos a Vincularse con nosotros a través de un Convenio de Colaboración.',
+                        style: TextStyle(fontSize: 20)),
+                  ],
+                ),
+                textScaleFactor: 0.5,
+              ),
+            ),
+          ),
+ Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
           child: Row(
             children: [
@@ -379,7 +395,8 @@ class CardsEvents extends StatelessWidget {
             ],
           ),
         ),
-      ],
+        ],
+      ),
     );
   }
 }

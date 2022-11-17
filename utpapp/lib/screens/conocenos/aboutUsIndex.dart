@@ -70,7 +70,6 @@ class _AboutUsIndexState extends State<AboutUsIndex> {
                   ],
                 )),
           ),
-          
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Card(
@@ -93,7 +92,7 @@ class _AboutUsIndexState extends State<AboutUsIndex> {
                   ],
                 )),
           ),
-              Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Card(
                 elevation: 4.0,
@@ -115,7 +114,7 @@ class _AboutUsIndexState extends State<AboutUsIndex> {
                   ],
                 )),
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
             child: Card(
                 elevation: 4.0,
@@ -137,7 +136,6 @@ class _AboutUsIndexState extends State<AboutUsIndex> {
                   ],
                 )),
           ),
-        
         ],
       ),
     );
