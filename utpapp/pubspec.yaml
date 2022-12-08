@@ -57,6 +57,15 @@ dependencies:
   flip_card: ^0.6.0
   curved_navigation_bar: ^1.0.3
   carousel_images: ^1.1.2
+  flutter_launcher_icons: ^0.11.0
+  http: ^0.13.5
+
+
+
+flutter_icons:
+  image_path_android: 'assets/images/arco.png'
+  android: true
+
 
 dev_dependencies:
   flutter_test:

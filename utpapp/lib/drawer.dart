@@ -18,6 +18,8 @@ import 'package:utpapp/screens/scanner.dart';
 import 'package:utpapp/screens/servicios/servicios.dart';
 import 'package:utpapp/screens/teacherPage.dart';
 
+import 'screens/forms/infostudent/moments.dart';
+
 class MenuDrawer extends StatefulWidget {
   const MenuDrawer({Key? key}) : super(key: key);
 
@@ -25,10 +27,11 @@ class MenuDrawer extends StatefulWidget {
   State<MenuDrawer> createState() => _MenuDrawerState();
 }
 
-final user = FirebaseAuth.instance.currentUser;
+// final user = FirebaseAuth.instance.currentUser;
 
-final name = user?.displayName;
-final email = user?.email;
+// final name = user?.displayName;
+// final email = user?.email;
+
 // final photoUrl = user?.photoURL;
 // final emailVerified = user?.emailVerified;
 // final uid = user?.uid;
@@ -43,18 +46,43 @@ class _MenuDrawerState extends State<MenuDrawer> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
+              // if(name==null && email==null)...[
               UserAccountsDrawerHeader(
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(88, 211, 241, 1),
                 ),
-                accountName: Text(name!),
-                accountEmail: Text(email!),
+                accountName: Text("Usuario invitado"),
+                accountEmail: Text("Usuario invitado"),
                 currentAccountPicture: CircleAvatar(
                   radius: 50.0,
                   backgroundColor: Color.fromARGB(255, 255, 255, 255),
                   backgroundImage: AssetImage('assets/images/user.png'),
                 ),
               ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  child: Text("Iniciar sesión")),
+              //   ]else ...[
+              //     UserAccountsDrawerHeader(
+              //   decoration: BoxDecoration(
+              //     color: Color.fromRGBO(88, 211, 241, 1),
+              //   ),
+
+              //   accountName: Text(name!),
+              //   accountEmail: Text(email!),
+              //   currentAccountPicture: CircleAvatar(
+              //     radius: 50.0,
+              //     backgroundColor: Color.fromARGB(255, 255, 255, 255),
+              //     backgroundImage: AssetImage('assets/images/user.png'),
+              //   ),
+              // ),
+              //   ],
+
               ProfileMenu(
                 text: "Inicio",
                 icon: "assets/icons/home.svg",
@@ -108,6 +136,16 @@ class _MenuDrawerState extends State<MenuDrawer> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => OfertaEducativa()),
+                  );
+                },
+              ),
+              ProfileMenu(
+                text: "Información del alumno",
+                icon: "assets/icons/student.svg",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Moments()),
                   );
                 },
               ),

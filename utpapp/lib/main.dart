@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:utpapp/auth/loginPage.dart';
 import 'package:utpapp/routes.dart';
+import 'package:utpapp/screens/button_nav_bar.dart';
+import 'package:utpapp/screens/home/HomeScreen.dart';
 import 'package:utpapp/size_confige.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:splash_view/splash_view.dart';
@@ -18,7 +20,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        /*  textTheme: Theme.of(context).textTheme.apply(bodyColor: Color.fromARGB(255, 1, 58, 90)), */
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Builder(builder: (context) {
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
               ]),
         
           logo: Image.asset('assets/images/logo.png'),
-          done: Done(LoginPage()),
+          done: Done(ButtonNavBar()),
         );
       }),
     );

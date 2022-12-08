@@ -7,15 +7,17 @@ class UTPAppBar extends StatefulWidget {
   const UTPAppBar({
     Key? key,
   }) : super(key: key);
+  
 
   @override
   State<UTPAppBar> createState() => _UTPAppBarState();
 }
 
-final user = FirebaseAuth.instance.currentUser;
+// final user = FirebaseAuth.instance.currentUser;
 
-    final name = user?.displayName;
-    final email = user?.email;
+
+//     final name = user?.displayName;
+//     final email = user?.email;
 class _UTPAppBarState extends State<UTPAppBar> {
   @override
   Widget build(BuildContext context) {
@@ -34,13 +36,25 @@ class _UTPAppBarState extends State<UTPAppBar> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Hola, ${name!}",
+              // if (name==null) ...[
+      Text(
+                "Hola, usuario",
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,
                     fontSize: getRelativeWidth(0.04)),
               ),
+    // ] else ...[
+      // Text(
+      //           "Hola, ${name!}",
+      //           style: TextStyle(
+      //               color: Colors.black,
+      //               fontWeight: FontWeight.w800,
+      //               fontSize: getRelativeWidth(0.04)),
+      //         ),
+    // ],
+              
+              
               SizedBox(height: getRelativeHeight(0.003)),
               Text(
                 "Universidad Tecnológica del Poniente",

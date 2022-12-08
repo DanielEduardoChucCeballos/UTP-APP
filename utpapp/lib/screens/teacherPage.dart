@@ -73,30 +73,25 @@ class _TeachersPageState extends State<TeachersPage> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Text(
-                                "Num Tel.:",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Número completo del Maestro")
+                              
+                              
                             ],
                           )
                         ],
                       ),
                       Row(
                         children: [
-                          TextButton.icon(
-                              onPressed: _showWappMenu,
-                              icon: const Icon(Icons.whatsapp),
-                              label: const Text("WhatsApp")),
-                          TextButton.icon(
-                              onPressed: () async {
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "9992721211");
-                              },
-                              icon: const Icon(Icons.call),
-                              label: const Text("LLamada")),
+                          // TextButton.icon(
+                          //     onPressed: _showWappMenu,
+                          //     icon: const Icon(Icons.whatsapp),
+                          //     label: const Text("WhatsApp")),
+                          // TextButton.icon(
+                          //     onPressed: () async {
+                          //       FlutterPhoneDirectCaller.callNumber(
+                          //           "9992721211");
+                          //     },
+                          //     icon: const Icon(Icons.call),
+                          //     label: const Text("LLamada")),
                           TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
@@ -158,30 +153,25 @@ class _TeachersPageState extends State<TeachersPage> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Text(
-                                "Num Tel.:",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Número completo del Maestro")
+                              
+                              
                             ],
                           )
                         ],
                       ),
                       Row(
                         children: [
-                          TextButton.icon(
-                              onPressed: _showWappMenu,
-                              icon: const Icon(Icons.whatsapp),
-                              label: const Text("WhatsApp")),
-                          TextButton.icon(
-                              onPressed: () async {
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "9992721211");
-                              },
-                              icon: const Icon(Icons.call),
-                              label: const Text("LLamada")),
+                          // TextButton.icon(
+                          //     onPressed: _showWappMenu,
+                          //     icon: const Icon(Icons.whatsapp),
+                          //     label: const Text("WhatsApp")),
+                          // TextButton.icon(
+                          //     onPressed: () async {
+                          //       FlutterPhoneDirectCaller.callNumber(
+                          //           "9992721211");
+                          //     },
+                          //     icon: const Icon(Icons.call),
+                          //     label: const Text("LLamada")),
                           TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
@@ -243,30 +233,25 @@ class _TeachersPageState extends State<TeachersPage> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Text(
-                                "Num Tel.:",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Número completo del Maestro")
+                              
+                              
                             ],
                           )
                         ],
                       ),
                       Row(
                         children: [
-                          TextButton.icon(
-                              onPressed: _showWappMenu,
-                              icon: const Icon(Icons.whatsapp),
-                              label: const Text("WhatsApp")),
-                          TextButton.icon(
-                              onPressed: () async {
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "9992721211");
-                              },
-                              icon: const Icon(Icons.call),
-                              label: const Text("LLamada")),
+                          // TextButton.icon(
+                          //     onPressed: _showWappMenu,
+                          //     icon: const Icon(Icons.whatsapp),
+                          //     label: const Text("WhatsApp")),
+                          // TextButton.icon(
+                          //     onPressed: () async {
+                          //       FlutterPhoneDirectCaller.callNumber(
+                          //           "9992721211");
+                          //     },
+                          //     icon: const Icon(Icons.call),
+                          //     label: const Text("LLamada")),
                           TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
@@ -328,30 +313,25 @@ class _TeachersPageState extends State<TeachersPage> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Text(
-                                "Num Tel.:",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Número completo del Maestro")
+                              
+                              
                             ],
                           )
                         ],
                       ),
                       Row(
                         children: [
-                          TextButton.icon(
-                              onPressed: _showWappMenu,
-                              icon: const Icon(Icons.whatsapp),
-                              label: const Text("WhatsApp")),
-                          TextButton.icon(
-                              onPressed: () async {
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "9992721211");
-                              },
-                              icon: const Icon(Icons.call),
-                              label: const Text("LLamada")),
+                          // TextButton.icon(
+                          //     onPressed: _showWappMenu,
+                          //     icon: const Icon(Icons.whatsapp),
+                          //     label: const Text("WhatsApp")),
+                          // TextButton.icon(
+                          //     onPressed: () async {
+                          //       FlutterPhoneDirectCaller.callNumber(
+                          //           "9992721211");
+                          //     },
+                          //     icon: const Icon(Icons.call),
+                          //     label: const Text("LLamada")),
                           TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
@@ -413,30 +393,25 @@ class _TeachersPageState extends State<TeachersPage> {
                               SizedBox(
                                 height: 5.0,
                               ),
-                              Text(
-                                "Num Tel.:",
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text("Número completo del Maestro")
+                              
+                              
                             ],
                           )
                         ],
                       ),
                       Row(
                         children: [
-                          TextButton.icon(
-                              onPressed: _showWappMenu,
-                              icon: const Icon(Icons.whatsapp),
-                              label: const Text("WhatsApp")),
-                          TextButton.icon(
-                              onPressed: () async {
-                                FlutterPhoneDirectCaller.callNumber(
-                                    "9992721211");
-                              },
-                              icon: const Icon(Icons.call),
-                              label: const Text("LLamada")),
+                          // TextButton.icon(
+                          //     onPressed: _showWappMenu,
+                          //     icon: const Icon(Icons.whatsapp),
+                          //     label: const Text("WhatsApp")),
+                          // TextButton.icon(
+                          //     onPressed: () async {
+                          //       FlutterPhoneDirectCaller.callNumber(
+                          //           "9992721211");
+                          //     },
+                          //     icon: const Icon(Icons.call),
+                          //     label: const Text("LLamada")),
                           TextButton.icon(
                               onPressed: () {
                                 Navigator.push(
