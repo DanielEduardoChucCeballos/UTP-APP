@@ -5,7 +5,7 @@ import 'package:utpapp/screens/maestros.dart';
 import 'package:utpapp/screens/maps.dart';
 import 'package:utpapp/screens/teacherPage.dart';
 
-import 'home/HomeScreen.dart';
+import 'home/homeScreen.dart';
 
 
 class ButtonNavBar extends StatefulWidget {

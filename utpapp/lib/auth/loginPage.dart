@@ -6,7 +6,7 @@ import 'package:sign_button/sign_button.dart';
 import 'package:utpapp/controllers/authenticator.dart';
 import 'package:utpapp/screens/aboutus.dart';
 import 'package:utpapp/screens/button_nav_bar.dart';
-import 'package:utpapp/screens/home/HomeScreen.dart';
+import 'package:utpapp/screens/home/homeScreen.dart';
 import '../controllers/biometric_helper.dart';
 import '../screens/teacherPage.dart';
 import '../screens/whatsapp_api.dart';

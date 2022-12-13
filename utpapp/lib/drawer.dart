@@ -8,7 +8,8 @@ import 'package:utpapp/screens/button_nav_bar.dart';
 import 'package:utpapp/screens/cameraPage.dart';
 import 'package:utpapp/screens/conocenos/aboutUsIndex.dart';
 import 'package:utpapp/screens/conocenos/vidaUniversitaria.dart';
-import 'package:utpapp/screens/home/HomeScreen.dart';
+import 'package:utpapp/screens/forms/infostudent/calificaciones.dart';
+import 'package:utpapp/screens/home/homeScreen.dart';
 import 'package:utpapp/screens/homePage.dart';
 import 'package:utpapp/screens/maps.dart';
 import 'package:utpapp/screens/ofertaEducativa/ofertaEducativa.dart';
@@ -145,7 +146,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Moments()),
+                    MaterialPageRoute(builder: (context) => Calificaciones()),
                   );
                 },
               ),

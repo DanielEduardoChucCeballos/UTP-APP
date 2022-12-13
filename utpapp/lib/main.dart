@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:utpapp/auth/loginPage.dart';
 import 'package:utpapp/routes.dart';
 import 'package:utpapp/screens/button_nav_bar.dart';
-import 'package:utpapp/screens/home/HomeScreen.dart';
+import 'package:utpapp/screens/home/homeScreen.dart';
 import 'package:utpapp/size_confige.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:splash_view/splash_view.dart';
