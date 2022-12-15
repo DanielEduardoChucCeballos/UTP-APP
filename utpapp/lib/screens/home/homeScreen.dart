@@ -6,6 +6,7 @@ import 'package:utpapp/screens/home/carrousel.dart';
 import 'package:utpapp/screens/home/datosEstadisticos.dart';
 
 import 'package:utpapp/screens/home/search_field.dart';
+import 'package:utpapp/screens/home/video.dart';
 import 'package:utpapp/size_confige.dart';
 import '../../drawer.dart';
 import 'appbar.dart';
@@ -34,11 +35,15 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: getRelativeHeight(0.015)),
               SearchField(),
               CarrouselEvents(),
-              SizedBox(height: getRelativeHeight(0.005)),
               // EventBanner(),
               // SizedBox(height: getRelativeHeight(0.025)),
+
+              SizedBox(height: getRelativeHeight(0.005)),
+
               CardsEvents(),
               SizedBox(height: getRelativeHeight(0.025)),
+              SizedBox(height: getRelativeHeight(0.005)),
+              VideoUtp(),
               DatosEstadisticos(),
             ],
           ),

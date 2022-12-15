@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:utpapp/screens/webviewsScreens/admin.dart';
+import 'package:utpapp/screens/webviewsScreens/gastronomia.dart';
+import 'package:utpapp/screens/webviewsScreens/procesos.dart';
+import 'package:utpapp/screens/webviewsScreens/tecnologias.dart';
+import 'package:utpapp/screens/webviewsScreens/turismo.dart';
 
 import '../../drawer.dart';
 import '../../size_confige.dart';
@@ -118,13 +123,22 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               ),
                             ),
                             Text(
-                              'Planificarás las estrategias que permitan evaluar la situación financiera de una organización, mediante técnicas de análisis y proyección, que permitan optimizar los recursos y el desempeño del personal. Obtendrás las competencias para lograr que una empresa o negocio propio, alcance los objetivos y se posicione en su entorno.',
+                              'Planificarás las estrategias que permitan evaluar la situación financiera de una organización, mediante técnicas de análisis y proyección, que permitan optimizar los recursos y el desempeño del personal.',
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.025),
                               ),
-                            )
+                            ),
+                                TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Administracion()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
@@ -199,13 +213,22 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                               ),
                             ),
                             Text(
-                              'Crearás productos gastronómicos aprendiendo desde la aplicación de recetas estándar, selección de insumos correctos, normas de calidad y actividades de creatividad, para posicionarte a ti y a la organización como una gran opción en la industria de alimentos y bebidas. Obtendrás las competencias para ser un impulsor de la innovación gastronómica en la región.',
+                              'Crearás productos gastronómicos aprendiendo desde la aplicación de recetas estándar, selección de insumos correctos, normas de calidad y actividades de creatividad, para posicionarte a ti y a la organización como una gran opción en la industria de alimentos y bebidas.',
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.025),
                               ),
-                            )
+                            ),
+                                TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Gastronomia()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
@@ -294,7 +317,16 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.025),
                               ),
-                            )
+                            ),
+                                TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Procesos()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
@@ -375,7 +407,16 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.025),
                               ),
-                            )
+                            ),
+                                TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Tecnologias()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
@@ -464,7 +505,16 @@ class _OfertaEducativaState extends State<OfertaEducativa> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.025),
                               ),
-                            )
+                            ),
+                                TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Turismo()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),

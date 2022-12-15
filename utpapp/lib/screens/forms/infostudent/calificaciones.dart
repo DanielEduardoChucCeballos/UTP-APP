@@ -101,17 +101,18 @@ class _CalificacionesState extends State<Calificaciones> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuDrawer(),
-      body: Column(
-        children: [
-          SizedBox(height: getRelativeHeight(0.025)),
-          UTPAppBar(
-            key: null,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: ListView.builder(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: getRelativeHeight(0.025)),
+            UTPAppBar(
+              key: null,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListView.builder(
+                shrinkWrap: true,
                 itemCount: promedioList.length,
                 itemBuilder: (context, index) {
                   return Container(
@@ -209,9 +210,8 @@ class _CalificacionesState extends State<Calificaciones> {
                     ),
                   );
                 }),
-          ),
-          Flexible(
-            child: ListView.builder(
+            ListView.builder(
+                shrinkWrap: true,
                 itemCount: alumnoList.length,
                 itemBuilder: (context, index) {
                   return Container(
@@ -225,37 +225,61 @@ class _CalificacionesState extends State<Calificaciones> {
                             padding: const EdgeInsets.all(20.0),
                             child: Column(
                               children: [
-                                Text(
-                                  alumnoList[index].nomasignatura,
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                InkWell(
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      alumnoList[index].nomasignatura,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "Calificación: " +
-                                      alumnoList[index].calificacion.toString(),
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                InkWell(
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "Calificación: " +
+                                          alumnoList[index]
+                                              .calificacion
+                                              .toString(),
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "Calificación Base: " +
-                                      alumnoList[index]
-                                          .calificacion_base
-                                          .toString(),
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                InkWell(
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "Calificación Base: " +
+                                          alumnoList[index]
+                                              .calificacion_base
+                                              .toString(),
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "Asistencia " +
-                                      alumnoList[index].asistencia.toString(),
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
+                                InkWell(
+                                  child: Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "Asistencia " +
+                                          alumnoList[index]
+                                              .asistencia
+                                              .toString(),
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -264,19 +288,19 @@ class _CalificacionesState extends State<Calificaciones> {
                     ),
                   );
                 }),
-          ),
-          Center(
-            child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FormularioCalificaciones()),
-                  );
-                },
-                child: Text("Regresar")),
-          )
-        ],
+            Center(
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FormularioCalificaciones()),
+                    );
+                  },
+                  child: Text("Regresar")),
+            )
+          ],
+        ),
       ),
     );
   }

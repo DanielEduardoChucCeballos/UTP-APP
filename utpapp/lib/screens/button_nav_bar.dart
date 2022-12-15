@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:utpapp/screens/cameraPage.dart';
 import 'package:utpapp/screens/maestros.dart';
 import 'package:utpapp/screens/maps.dart';
+import 'package:utpapp/screens/pdf.dart';
 import 'package:utpapp/screens/teacherPage.dart';
 
 import 'home/homeScreen.dart';
@@ -20,7 +21,7 @@ List<Widget> _paginas = [
   //*Aqui vas agregando las paginas que quieres
 
   HomeScreen(),
-  Maps(),
+  Horario(),
   TeachersPage()
 ];
 
@@ -46,7 +47,7 @@ class _ButtonNavBarState extends State<ButtonNavBar> {
             Icons.home,
             color: Colors.white,
           ),
-          Icon(Icons.location_on, color: Colors.white),
+          Icon(Icons.calendar_month, color: Colors.white),
           Icon(Icons.contacts, color: Colors.white),
         ],
       ),

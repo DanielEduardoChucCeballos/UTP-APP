@@ -1,6 +1,6 @@
+/* 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 
 class Maps extends StatefulWidget {
   const Maps({Key? key}) : super(key: key);
@@ -50,5 +50,65 @@ class _ConocenosState extends State<Maps> {
             zoom: 10.0,
           ),
         ));
+  }
+} */
+
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+
+class Maps extends StatefulWidget {
+  Maps({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _MapsPageState createState() => _MapsPageState();
+}
+
+class _MapsPageState extends State<Maps> {
+  late PdfViewerController _pdfViewerController;
+  final GlobalKey<SfPdfViewerState> _pdfViewerStateKey = GlobalKey();
+  @override
+  void initState() {
+    _pdfViewerController = PdfViewerController();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+      body: SfPdfViewer.network(
+          'http://www.utponiente.edu.mx/utp/doctos/CALENDARIO%20ESCOLAR%20UTP%202022-2023_AUTORIZADO_FIRMAS.pdf',
+          controller: _pdfViewerController,
+          key: _pdfViewerStateKey),
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                _pdfViewerStateKey.currentState!.openBookmarkView();
+              },
+              icon: Icon(
+                Icons.bookmark,
+                color: Color.fromARGB(255, 163, 123, 123),
+              )),
+          IconButton(
+              onPressed: () {
+                _pdfViewerController.jumpToPage(2);
+              },
+              icon: Icon(
+                Icons.arrow_drop_down_circle,
+                color: Colors.white,
+              )),
+          IconButton(
+              onPressed: () {
+                _pdfViewerController.zoomLevel = 2.25;
+              },
+              icon: Icon(
+                Icons.zoom_in,
+                color: Colors.white,
+              ))
+        ],
+      ),
+    ));
   }
 }

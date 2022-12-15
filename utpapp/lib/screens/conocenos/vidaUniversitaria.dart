@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:utpapp/screens/webviewsScreens/becas.dart';
+import 'package:utpapp/screens/webviewsScreens/villasScreen.dart';
 
 import '../../drawer.dart';
 import '../../size_confige.dart';
@@ -195,7 +197,16 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.027),
                               ),
-                            )
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => VillasScreen()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
@@ -274,7 +285,16 @@ class _VidaUniversitariaState extends State<VidaUniversitaria> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: getRelativeWidth(0.027),
                               ),
-                            )
+                            ),
+                             TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Becas()),
+                                  );
+                                },
+                                child: Text("Ver más"))
                           ],
                         ),
                       ),
