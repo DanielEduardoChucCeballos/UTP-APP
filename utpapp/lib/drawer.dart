@@ -9,6 +9,7 @@ import 'package:utpapp/screens/cameraPage.dart';
 import 'package:utpapp/screens/conocenos/aboutUsIndex.dart';
 import 'package:utpapp/screens/conocenos/vidaUniversitaria.dart';
 import 'package:utpapp/screens/forms/infostudent/calificaciones.dart';
+import 'package:utpapp/screens/forms/infostudent/formularioCalificacion.dart';
 import 'package:utpapp/screens/home/homeScreen.dart';
 import 'package:utpapp/screens/homePage.dart';
 import 'package:utpapp/screens/maps.dart';
@@ -146,7 +147,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                 press: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Calificaciones()),
+                    MaterialPageRoute(builder: (context) => FormularioCalificaciones()),
                   );
                 },
               ),

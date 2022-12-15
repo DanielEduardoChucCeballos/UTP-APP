@@ -1,265 +1,143 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:utpapp/auth/registerPage.dart';
-import 'package:sign_button/sign_button.dart';
-import 'package:utpapp/controllers/authenticator.dart';
-import 'package:utpapp/screens/aboutus.dart';
-import 'package:utpapp/screens/button_nav_bar.dart';
-import 'package:utpapp/screens/home/homeScreen.dart';
-import '../controllers/biometric_helper.dart';
-import '../screens/teacherPage.dart';
-import '../screens/whatsapp_api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'package:utpapp/routes.dart';
+
+import 'dart:async';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
-TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
-
 class _LoginPageState extends State<LoginPage> {
-  bool showBiometric = false;
-  bool isAuthenticated = false;
+  TextEditingController idalumno = TextEditingController();
+  TextEditingController matriculainput = TextEditingController();
+
+  String alumno = "";
+  String matricula = "";
+  late SharedPreferences prefs;
+
+  void ingresar(alumno, matricula) async {
+    try {
+      var url = 'http://192.168.1.64/login.php';
+      var response = await http.post(Uri.parse(url), body: {
+        'idalumno': alumno,
+        'matricula': matricula,
+      }).timeout(const Duration(seconds: 90));
+
+      if (response.body == 'true') {
+        Navigator.pushNamed(
+          context,
+          '/navigator',
+        );
+        FocusScope.of(context).unfocus();
+
+        print('Response body: ${response.body}');
+        prefs = await SharedPreferences.getInstance();
+        prefs.setString("idalumno", alumno);
+        prefs.setString("matricula", matricula);
+        
+
+      } else {
+        print("Usuario incorrecto");
+        print('Response body: ${response.body}');
+      }
+    } on TimeoutException catch (e) {
+      print('Se agotó el tiempo de conexión');
+    } on Error catch (e) {
+      print('Http error');
+    }
+  }
+
   @override
-  void initState() {
-    isBiometricsAvailable();
-    super.initState();
-  }
-
-  isBiometricsAvailable() async {
-    showBiometric = await BiometricHelper().hasEnrolledBiometrics();
-    setState(() {});
-  }
-
   Widget build(BuildContext context) {
-    Firebase.initializeApp();
+    return Scaffold(
+        body: Stack(
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(vertical: 20),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.cyan,
+                Colors.cyan[800]!,
+              ],
+            ),
+          ),
+          child: CircleAvatar(
+            child: Image.asset('assets/images/arco.png',width: 300,),
+            radius: 100,
+            backgroundColor: Colors.transparent,
 
-    return MaterialApp(
-      theme: ThemeData(primaryColor: const Color.fromARGB(255, 32, 82, 32)),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.cyan,
-        body: Container(
-          child: LayoutBuilder(
-            builder:
-                (BuildContext context, BoxConstraints viewportConstraints) {
-              return SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints:
-                      BoxConstraints(minHeight: viewportConstraints.maxHeight),
-                  child: Container(
-                    child: IntrinsicHeight(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            color: Colors.cyan,
-                            height: MediaQuery.of(context).size.height * 0.30,
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  const Center(
-                                    child: Image(
-                                        image: AssetImage(
-                                            'assets/images/logo.png')),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              padding: const EdgeInsets.all(30),
-                              decoration: const BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(50),
-                                  topRight: Radius.circular(50),
-                                ),
-                              ),
-                              child: Column(
-                                children: <Widget>[
-                                  TextField(
-                                    controller: email,
-                                    autocorrect: true,
-                                    decoration: InputDecoration(
-                                      hintText: 'Ingrese su Email',
-                                      hintStyle: const TextStyle(
-                                        color: Colors.black,
-                                      ),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                        borderSide: BorderSide(
-                                          color: Theme.of(context).primaryColor,
-                                          width: 3,
-                                        ),
-                                      ),
-                                      prefixIcon: IconTheme(
-                                        data: IconThemeData(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                        child: const Icon(Icons.email),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  TextField(
-                                    controller: password,
-                                    autocorrect: true,
-                                    obscureText: true,
-                                    decoration: InputDecoration(
-                                      hintText: 'Ingrese su contraseña',
-                                      hintStyle: const TextStyle(
-                                        color: Colors.black,
-                                      ),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                        borderSide: BorderSide(
-                                          color: Theme.of(context).primaryColor,
-                                          width: 3,
-                                        ),
-                                      ),
-                                      prefixIcon: IconTheme(
-                                        data: IconThemeData(
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                        child: const Icon(Icons.lock),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  Column(
-                                    children: <Widget>[
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Colors.green,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          textStyle: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontStyle: FontStyle.normal),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomeScreen()),
-                                          );
-                                        },
-                                        child: const Text('Iniciar Sesión'),
-                                      ),
-                                      const SizedBox(height: 20),
-                                      if (showBiometric)
-                                        ElevatedButton(
-                                          child: const Text(
-                                            'Biometric Login',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                          onPressed: () async {
-                                            isAuthenticated =
-                                                await BiometricHelper()
-                                                    .authenticate();
-                                            setState(() {});
-
-                                            // ignore: use_build_context_synchronously
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                       HomeScreen()),
-                                            );
-                                          },
-                                        ),
-                                      if (isAuthenticated)
-                                        const Padding(
-                                          padding: EdgeInsets.only(top: 50.0),
-                                          child: Text(
-                                            'Well done!, Authenticated',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 25),
-                                          ),
-                                        ),
-                                      const SizedBox(
-                                        height: 20,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          const Text("¿No estas registrado?"),
-                                          TextButton(
-                                            child: const Text("Registrarse"),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const RegisterPage()),
-                                              );
-                                            },
-                                          )
-                                        ],
-                                      ),
-                                      Center(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            SignInButton.mini(
-                                              buttonType: ButtonType.google,
-                                              onPressed: () async {
-                                                User? user = await Authenticator
-                                                    .iniciarSesion(
-                                                        context: context);
-                                                print(user?.displayName);
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          ButtonNavBar()),
-                                                );
-                                              },
-                                            ),
-                                            SignInButton.mini(
-                                              buttonType: ButtonType.facebook,
-                                              onPressed: () {},
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            },
           ),
         ),
-      ),
-    );
+        Transform.translate(
+          offset: Offset(0, -40),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                margin: const EdgeInsets.only(
+                    left: 20, right: 20, top: 260, bottom: 20),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      TextField(
+                        controller: idalumno,
+                        decoration:
+                            InputDecoration(labelText: "ID de usuario:"),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      TextField(
+                        controller: matriculainput,
+                        decoration: InputDecoration(labelText: "Matricula:"),
+                      ),
+                      SizedBox(
+                        height: 40,
+                      ),
+                      ElevatedButton(
+                        onPressed: () => _login(context),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text("Iniciar Sesión"),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    ));
+  }
+
+  void _login(BuildContext context) {
+    alumno = idalumno.text;
+    matricula = matriculainput.text;
+   
+
+    if (alumno != '' && matricula != '') {
+      ingresar(alumno, matricula);
+    }
+/*     Navigator.pushNamed(context, 'navigator',); */
   }
 }

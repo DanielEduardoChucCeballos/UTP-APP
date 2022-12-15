@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Alumno {
-  final String nomalumno, nomgrupo, nomasignatura, momento,calificacion, calificacion_base,asistencia;
+  var nomalumno, nomgrupo, nomasignatura,momento,calificacion, calificacion_base,asistencia;
   
 
   Alumno({

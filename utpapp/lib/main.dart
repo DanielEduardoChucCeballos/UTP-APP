@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
                 Color.fromARGB(255, 97, 211, 101),
                 Color.fromRGBO(88, 211, 241, 1)
               ]),
-        
           logo: Image.asset('assets/images/logo.png'),
           done: Done(ButtonNavBar()),
         );

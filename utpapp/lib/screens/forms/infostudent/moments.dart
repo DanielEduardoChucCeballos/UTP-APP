@@ -1,4 +1,4 @@
-import 'dart:convert';
+/* import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -18,7 +18,7 @@ class _MomentsState extends State<Moments> {
   List<Alumno> calificaciones = <Alumno>[];
 
   Future<List<Alumno>> getCalificaciones() async {
-    var url = "http://utpproyectos.com.mx/swcalificaciones/conn.php";
+    var url = "http://192.168.1.64/conn.php";
 
     var response =
         await http.post(Uri.parse(url)).timeout(Duration(seconds: 90));
@@ -26,6 +26,7 @@ class _MomentsState extends State<Moments> {
     var datos = json.decode(response.body);
 
     var registros = <Alumno>[];
+    
 
     for (datos in datos) {
       registros.add(Alumno.fromJson(datos));
@@ -184,3 +185,4 @@ class _MomentsState extends State<Moments> {
     );
   }
 }
+ */

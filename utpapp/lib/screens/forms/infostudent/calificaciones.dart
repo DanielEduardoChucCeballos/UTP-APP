@@ -1,58 +1,107 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:utpapp/drawer.dart';
 import 'package:flutter/services.dart';
+import 'package:utpapp/models/Alumno.dart';
+import 'package:utpapp/models/Promedio.dart';
 import '../../../size_confige.dart';
 import '../../home/appbar.dart';
+import 'formularioCalificacion.dart';
 
 class Calificaciones extends StatefulWidget {
-  const Calificaciones({super.key});
+  const Calificaciones({
+    super.key,
+  });
 
   @override
   State<Calificaciones> createState() => _CalificacionesState();
 }
 
 class _CalificacionesState extends State<Calificaciones> {
-  final idalumno = TextEditingController();
-  final idgrupo = TextEditingController();
+  List<Alumno> alumnoList = <Alumno>[];
+  List<Promedio> promedioList = <Promedio>[];
 
-  late int alumno;
-  late int grupo;
+  Future<List<Alumno>> getAlumno() async {
+    late SharedPreferences prefs;
 
-  late int momento = 1;
-  var items = [1, 2, 3];
+    prefs = await SharedPreferences.getInstance();
+    final String? idalumno = prefs.getString('idalumno');
+    final String? idgrupo = prefs.getString('idgrupo');
+    final String? momento = prefs.getString('momento');
 
-  void solicitar(alumno, grupo, momento) async {
-    try {
-      var url = 'http://192.168.1.64/config.php';
-      var response = await http.post(Uri.parse(url), body: {
-        'idalumno': alumno,
-        'idgrupo': grupo,
-        'momento': momento,
-      }).timeout(const Duration(seconds: 90));
+    //var url = 'http://utpproyectos.com.mx/swcalificaciones/chuc/query.php';
+    var url = 'http://192.168.1.64/query.php';
+    var response = await http.post(Uri.parse(url), body: {
+      'idalumno': idalumno,
+      'idgrupo': idgrupo,
+      'momento': momento,
+    });
 
-      if (response.statusCode == 200) {
-        
+/*     var response =
+        await http.post(Uri.parse(url)).timeout(Duration(seconds: 90)); */
 
-        FocusScope.of(context).unfocus();
-        print('Response body: ${response.body}');
-      } else {
-        print("Error por alguna reazón XD");
-        print('Response body: ${response.body}');
-      }
-    } on TimeoutException catch (e) {
-      print('Se agotó el tiempo de conexión');
-    } on Error catch (e) {
-      print('Http error');
+    var datos = json.decode(response.body);
+
+    var registros = <Alumno>[];
+
+    for (datos in datos) {
+      registros.add(Alumno.fromJson(datos));
     }
+    return registros;
+  }
+
+  Future<List<Promedio>> getPromedio() async {
+    late SharedPreferences prefs;
+
+    prefs = await SharedPreferences.getInstance();
+    final String? idalumno = prefs.getString('idalumno');
+    final String? idgrupo = prefs.getString('idgrupo');
+    final String? momento = prefs.getString('momento');
+
+    //var url = 'http://utpproyectos.com.mx/swcalificaciones/chuc/query.php';
+    var url = 'http://192.168.1.64/promedio.php';
+    var response = await http.post(Uri.parse(url), body: {
+      'idalumno': idalumno,
+      'idgrupo': idgrupo,
+      'momento': momento,
+    });
+
+/*     var response =
+        await http.post(Uri.parse(url)).timeout(Duration(seconds: 90)); */
+
+    var datos = json.decode(response.body);
+
+    var registros = <Promedio>[];
+
+    for (datos in datos) {
+      registros.add(Promedio.fromJson(datos));
+    }
+    return registros;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getAlumno().then((value) {
+      setState(() {
+        alumnoList.addAll(value);
+      });
+    });
+    getPromedio().then((value) {
+      setState(() {
+        promedioList.addAll(value);
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MenuDrawer(),
-      body: ListView(
+      body: Column(
         children: [
           SizedBox(height: getRelativeHeight(0.025)),
           UTPAppBar(
@@ -61,97 +110,174 @@ class _CalificacionesState extends State<Calificaciones> {
           SizedBox(
             height: 20,
           ),
-          Card(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            margin: EdgeInsets.all(20.0),
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  children: <Widget>[
-                    Form(
+          Expanded(
+            child: ListView.builder(
+                itemCount: promedioList.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          TextField(
-                            controller: idalumno,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
+                        children: [
+                          InkWell(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 10),
+                                  child: Text(
+                                    promedioList[index].nomalumno,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )),
+                            ),
+                          ),
+                          InkWell(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Cuatrimestre: ' +
+                                      promedioList[index].nomgrupo,
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-                              labelText: 'ID del alumno',
                             ),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          TextField(
-                            controller: idgrupo,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
+                          InkWell(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Parcial ' +
+                                      promedioList[index].momento.toString(),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-                              labelText: 'ID del grupo',
-                            ),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Center(
-                            child: DropdownButton(
-                              value: momento,
-                              items: items.map((int items) {
-                                return DropdownMenuItem(
-                                    value: items,
-                                    child: Text(items.toString()));
-                              }).toList(),
-                              onChanged: (int? newValue) {
-                                setState(() {
-                                  momento = newValue!;
-                                });
-                              },
                             ),
                           ),
-                          TextButton(
-                              onPressed: () => _queryCalif(context),
-                              child: Text("Solicitar"))
+                          InkWell(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Promedio: ' +
+                                      promedioList[index].promedio.toString(),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
+                                child: Text(
+                                  'Promedio base: ' +
+                                      promedioList[index]
+                                          .promedio_base
+                                          .toString(),
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                    ),
+                  );
+                }),
           ),
+          Flexible(
+            child: ListView.builder(
+                itemCount: alumnoList.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  alumnoList[index].nomasignatura,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Calificación: " +
+                                      alumnoList[index].calificacion.toString(),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Calificación Base: " +
+                                      alumnoList[index]
+                                          .calificacion_base
+                                          .toString(),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  "Asistencia " +
+                                      alumnoList[index].asistencia.toString(),
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )),
+                    ),
+                  );
+                }),
+          ),
+          Center(
+            child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FormularioCalificaciones()),
+                  );
+                },
+                child: Text("Regresar")),
+          )
         ],
       ),
     );
-  }
-
-  void _queryCalif(BuildContext context) {
-    alumno = int.parse(idalumno.text);
-    grupo = int.parse(idgrupo.text);
-    momento = momento;
-
-    print(alumno.runtimeType);
-    print(grupo.runtimeType);
-    print(momento.runtimeType);
-
-
-    if (alumno != '' && grupo != '' && momento != '') {
-      solicitar(alumno, grupo, momento);
-    }
-/*     Navigator.pushNamed(context, 'navigator',); */
   }
 }
